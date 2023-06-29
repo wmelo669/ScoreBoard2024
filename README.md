@@ -40,26 +40,26 @@ classDiagram
 ```
 
 -----------------------------------------
-## La base de données
-- [ ] Créez une base de donnée et liez là au projet.
-- [ ] Ajoutez les annotations et propriétés nécessaires pour compléter le modèle
 
-### Validations
+## Validations
 Classe joueur:
 - [ ] Tous les champs sont obligatoires sauf _Equipe_ et _Telephone_.
 - [ ] Le champs équipe doit avoir 2 à 4 lettres majuscules.
 - [ ] Les champs nom et prénom doivent entre 2 et 20 caractères.
 - [ ] Le champ courriel doit être une adresse courriel valide, de format _Identifiant@scoreboard.ca_. _Identifiant_ étant l'identifiant du joueur. Vous avez le choix de la méthode de validations (client et/ou serveur).
 
-- [ ] Créez la classe de couche d'accès aux données.
-- [ ] Créez une migration et générer la base de données.
-- [ ] Créer une classe statique pour initialiser les données. Vous trouverez des listes de joueurs et de jeux dans la section Annexe plus bas, elles doivent être modifiées pour réfléter vos ajouts au modèle.
-
 Classe jeu
 - [ ] Tous les champs sont requis.
 - [ ] Les propriété _DateSortie_ et _DateEnregistrement_ doivent être des dates antérieures à la date du jour.
 - [ ] L'identifiant du joueur doit exister.
 - [ ] Le score doit être compris entre 0 et 100.
+
+## La base de données
+- [ ] Créez une base de donnée et liez là au projet.
+- [ ] Ajoutez les annotations et propriétés nécessaires pour compléter le modèle
+- [ ] Créez la classe de couche d'accès aux données.
+- [ ] Créez une migration et générer la base de données.
+- [ ] Créer une classe statique pour initialiser les données. Vous trouverez des listes de joueurs et de jeux dans la section Annexe plus bas, elles doivent être modifiées pour réfléter vos ajouts au modèle.
 
 ## Le modèle référentiel 
 - [ ] Implémentez l'interface **_IJoueurRepository_** (i.e. Créez la classe qui implémente l'interface **_IJoueurRepository_**). 
