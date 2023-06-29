@@ -1,19 +1,10 @@
 # Informations
-Il s'agit d'une (partie d'une) application qui permet de gérer des joueurs et des sessions de jeux, et d'afficher les scores sur un tableau de bord.
-
-## Partie 1 (32 points)
-- Durée: 2h (temps supplémentaire compris).
-- Remise en classe. 
-
-## Partie 2 (18 points)
-Si vous n'avez pas terminé la première partie, faites-le.
-- Devoir noté à finir en dehors de la classe.
-- Remise: Dimanche 2 avril 21h00.
+Il s'agit d'une application qui permet de gérer des joueurs et des sessions de jeux, et d'afficher les scores sur un tableau de bord.
 
 # Instructions
 - Faites un fork du dépôt.
-- Donnez-moi les droits d'accès _Maintainer_ à votre projet.
-- Faites des commit régulièrement. Comptez toutes les 30 minutes, au pire. 
+- Donnez-moi les droits d'accès à votre projet.
+- Faites des commit régulièrement. 
 
 # Description du modèle 
 Vous avez 2 classes modèles **_Jeu_** et **_Joueur_** dans le projet. 
@@ -49,10 +40,30 @@ classDiagram
 ```
 
 -----------------------------------------
-# Partie 1: Remise en classe
+## La base de données
+- [ ] Créez une base de donnée et liez là au projet.
+- [ ] Ajoutez les annotations et propriétés nécessaires pour compléter le modèle
+
+### Validations
+Classe joueur:
+- [ ] Tous les champs sont obligatoires sauf _Equipe_ et _Telephone_.
+- [ ] Le champs équipe doit avoir 2 à 4 lettres majuscules.
+- [ ] Les champs nom et prénom doivent entre 2 et 20 caractères.
+- [ ] Le champ courriel doit être une adresse courriel valide, de format _Identifiant@scoreboard.ca_. _Identifiant_ étant l'identifiant du joueur. Vous avez le choix de la méthode de validations (client et/ou serveur).
+
+- [ ] Créez la classe de couche d'accès aux données.
+- [ ] Créez une migration et générer la base de données.
+- [ ] Créer une classe statique pour initialiser les données. Vous trouverez des listes de joueurs et de jeux dans la section Annexe plus bas, elles doivent être modifiées pour réfléter vos ajouts au modèle.
+
+Classe jeu
+- [ ] Tous les champs sont requis.
+- [ ] Les propriété _DateSortie_ et _DateEnregistrement_ doivent être des dates antérieures à la date du jour.
+- [ ] L'identifiant du joueur doit exister.
+- [ ] Le score doit être compris entre 0 et 100.
 
 ## Le modèle référentiel 
-- [ ] Implémentez l'interface **_IJoueurRepository_** (i.e. Créez la classe qui implémente l'interface **_IJoueurRepository_**). Vous trouverez une liste de joueurs dans la section Annexe plus bas.
+- [ ] Implémentez l'interface **_IJoueurRepository_** (i.e. Créez la classe qui implémente l'interface **_IJoueurRepository_**). 
+- [ ] Créez une interface pour le modèle Jeu et implémentez la.
 
 ## Implémentation des contrôleurs et des vues
 ### Contrôleur et vues de Joueur 
@@ -62,23 +73,7 @@ Implémentez le contrôleur **_JoueurController_** et les vues du dossier _Views
 - [ ] Modification d'un joueur (vue _Modifier_).
 - [ ] Suppression d'un joueur avec confirmation de suppression (vue _supprimer_): la suppression d'un joueur nous renvoie vers une vue de confirmation de la suppression du joueur. Cette vue doit avoir 2 boutons, un pour confirmer la suppression et l'autre pour l'annuler.
 
-## Validations
-Les validations doivent se faire côté client et côté serveur.
-
-Dans la classe joueur:
-- [ ] Tous les champs sont obligatoires sauf _Equipe_ et _Telephone_.
-- [ ] Le champs équipe doit avoir 2 à 4 lettres majuscules.
-- [ ] Les champs nom et prénom doivent entre 2 et 20 caractères.
-- [ ] Le champ courriel doit être une adresse courriel valide, de format _Identifiant@scoreboard.ca_. _Identifiant_ étant l'identifiant du joueur. Vous avez le choix de la méthode de validations (client et/ou serveur).
-
------------------------------------------
-# Partie 2: devoir noté à faire chez vous
-- [ ] **Vous devez avoir une autre branche ou un autre dépoôt GitLab pour cette partie.**
-
-## Le modèle référentiel
-- [ ] Créez une interface pour le modèle Jeu et implémentez la.
- 
-## Le modèle de vue (ViewModel)
+ ## Le modèle de vue (ViewModel)
 Un modèle de vue est une classe qui représente les données spécifiques à une vue, et qui est conçu pour répondre aux besoins spécifiques d'une vue. Il est généralement créé en combinant des données provenant de différents modèles de domaine ou d'autres sources de données. 
 
 ### Interaction avec le reste de l'application
@@ -103,22 +98,8 @@ Implémentez le contrôleur DashboardController de façon à
     - Pour chaque joueur, afficher son score dans chaque jeu, ainsi que son score total. 
     - Choisissez la mise en forme de votre choix.
 
-## Validations
-### Classe jeu
-- [ ] Tous les champs sont requis.
-- [ ] Les propriété _DateSortie_ et _DateEnregistrement_ doivent être des dates antérieures à la date du jour.
-- [ ] L'identifiant du joueur doit exister.
-- [ ] Le score doit être compris entre 0 et 100.
-
-## Tests unitaires
-Créez des tests unitaires pour 
-- [ ] Les 2 méthodes supprimer (qui répondent au Get et au Post) du contrôleur JoueurController.
-- [ ] La méthode Modifier du repository de Joueur.
-
 ## Mise en forme
 - Complétez, au besoin, la mise en forme de votre application.
-- Pas besoin d'être extravagant.
-- Ne copiez pas la mise en forme de mes exemples!
 
 # Annexe
 ## Liste de joueurs
